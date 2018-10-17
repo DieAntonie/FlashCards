@@ -7,7 +7,7 @@ error_reporting(-1);
 
 session_start();
 
-require '../Query/Query.php';
+require './Query/Query.php';
 
 //temporary, while on localhost
 $url = 'localhost/flashcards';

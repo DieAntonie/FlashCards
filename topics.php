@@ -1,6 +1,6 @@
 <?php
 
-require '../core/init.php';
+require './init.php';
 
 if (isset($_GET['id'])) {
 
@@ -14,5 +14,5 @@ if (isset($_GET['id'])) {
 
 	$result = $query->table('topics')->insert(array('user_id', 'name'), array($_SESSION['id'], $title))->execute();
 	var_dump($result);
-	header('Location: ../index.php');
+	header('Location: ./index.php');
 }

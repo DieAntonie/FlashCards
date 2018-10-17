@@ -1,6 +1,6 @@
 <?php
 
-require '../core/init.php';
+require './init.php';
 
 //if inserting a user
 if (isset($_POST['email'])) {
@@ -19,7 +19,7 @@ if (isset($_POST['email'])) {
 	$_SESSION['id'] = $user[0]['id'];
 	$_SESSION['created'] = time();
 
-	header("Location: ../index.php");
+	header("Location: ./index.php");
 
 } else { // if retrieving id from a user
 	$username = $_POST['username'];
@@ -35,8 +35,8 @@ if (isset($_POST['email'])) {
 	if (count($user) > 0) {
 		$_SESSION['id'] = $user[0]['id'];
 		$_SESSION['created'] = time();
-		header('Location: ../index.php');
+		header('Location: ./index.php');
 	} else {
-		header('Location: ../login.php?message=failed');
+		header('Location: ./login.php?message=failed');
 	}
 }
