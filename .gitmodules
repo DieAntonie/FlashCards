@@ -1,0 +1,4 @@
+[submodule "Query/"]
+    path = Query/
+    url = git://github.com/DieAntonie/QueryBuilder.git
+    ignore = dirty
