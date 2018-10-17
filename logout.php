@@ -1,6 +1,6 @@
 <?php
 
-require './core/init.php';
+require './init.php';
 
 session_destroy();
 

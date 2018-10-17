@@ -1,7 +1,7 @@
 <?php
 
 
-require './core/init.php';
+require './init.php';
 
 $id = $_SESSION['id'];
 
@@ -14,7 +14,7 @@ if (!isset($_SESSION['id'])) {
 }
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $url . "/api/topics.php?id=" . $id);
+curl_setopt($ch, CURLOPT_URL, $url . "/topics.php?id=" . $id);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
@@ -50,7 +50,7 @@ $topics = json_decode(trim($topics), true);
 		$topicNames = array();
 		echo "<div class='containers'>";
 
-		if (count($topics) > 0) {
+		if ($topics != null && count($topics) > 0) {
 			foreach ($topics as $topic) {
 				if ($counter < 3) {
 					echo "<div class='topics' id='div" . $topic['id'] . "' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
@@ -87,7 +87,7 @@ $topics = json_decode(trim($topics), true);
 	</div>
 	</div>
 	<div id="newTopicModal" style="position: absolute;">
-		<form action="./api/topics.php" method="post">
+		<form action="./topics.php" method="post">
 			<h3>Enter a name for your topic:</h3>
 			<input type="text" name="newTopicInput" id="newTopicInputId" placeholder="New Topic">
 		</form>

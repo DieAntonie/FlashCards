@@ -1,12 +1,12 @@
 <?php
 
-require './core/init.php';
+require './init.php';
 
 $topic_id = $_GET['topic_id'];
 $title = $_GET['title'];
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $url . "/api/cards.php?id=" . $topic_id);
+curl_setopt($ch, CURLOPT_URL, $url . "/cards.php?id=" . $topic_id);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
@@ -53,7 +53,7 @@ $cards = json_decode(trim($cards), true);
 					
 			</div>
 			<input type="text" name="title" id="titleInput" placeholder="Front Side">
-			<form id="newCardForm" action="./api/cards.php" method="post" style="display: none;">
+			<form id="newCardForm" action="./cards.php" method="post" style="display: none;">
 				<input type="text" name="titleCopy" id="titleInputCopy" style="display: none;">
 				<input type="text" name="definition" id="definitionInput" placeholder="Back Side">
 				<input type="text" name="topic_id" value=<?php echo $topic_id; ?> style="display: none;">
