@@ -12,11 +12,13 @@ require './Query/Query.php';
 //temporary, while on localhost
 $url = 'localhost/flashcards';
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "flashcards";
+$config = parse_ini_file('config.ini');
 
-$mysqli = new mysqli($servername, $username, $password, $dbname);
+$host = $config["app_url"];
+$username = $config["db_user"];
+$passwd = $config["db_password"];
+$dbname = $config["db_name"];
+
+$mysqli = new mysqli($host, $username, $passwd, $dbname);
 
 $query = new Query($mysqli);
